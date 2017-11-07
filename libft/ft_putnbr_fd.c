@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/07 16:16:35 by cyfermie          #+#    #+#             */
+/*   Updated: 2017/11/07 16:16:46 by cyfermie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char			tab[50]; // taille arbitraire
+	char			tab[50];
 	unsigned short	index;
 	unsigned int	u;
 

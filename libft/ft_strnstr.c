@@ -1,34 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/07 15:50:50 by cyfermie          #+#    #+#             */
+/*   Updated: 2017/11/07 15:50:51 by cyfermie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
-
-#include <string.h>
-
-#include <stdio.h>	// A ENLEVER /////////////////////////////
-
-char *xstrnstr(const char *s, const char *find, size_t slen)
-{
-	char c, sc;
-	size_t len;
-
-	if ((c = *find++) != '\0')
-	{
-		len = strlen(find);
-		do {
-			do
-			{
-				if (slen-- < 1 || (sc = *s++) == '\0')
-					return NULL;
-			} while (sc != c);
-
-			if (len > slen)
-				return NULL;
-
-		} while ( strncmp(s, find, len) != 0 );
-
-		s--;
-	}
-
-	return ((char *)s);
-}
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
@@ -47,6 +29,6 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 		}
 		++s1;
 		--n;
-	} 
+	}
 	return (NULL);
 }
