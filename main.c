@@ -2195,6 +2195,7 @@ void	test_lstmap(void)
 */
 }
 
+
 int		main(void)
 {
 	/*

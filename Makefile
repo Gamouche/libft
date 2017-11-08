@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/11/08 19:38:21 by cyfermie          #+#    #+#              #
+#    Updated: 2017/11/08 19:38:23 by cyfermie         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 SRCS = ft_strlen.c \
@@ -57,7 +69,9 @@ SRCS = ft_strlen.c \
 		  ft_lstdel.c \
 		  ft_lstadd.c \
 		  ft_lstiter.c \
-		  ft_lstmap.c
+		  ft_lstmap.c \
+		  ft_iseven.c \
+		  ft_isodd.c
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
