@@ -10,29 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char		*ft_strtrim(const char *s)
 {
-	char	*strtrim;
-	size_t	index;
+	char	*ret;
+	int		i;
+	int		len;
 
-	index = 0;
-	while (*s == ' ' || *s == ',' || *s == '\t' || *s == '\n')
-		++s;
-	while (s[index] != ' ' && s[index] != ',' && s[index] != '\t'
-	&& s[index] != '\n' && s[index] != '\0')
-		++index;
-	strtrim = (char *)malloc(sizeof(char) * (index + 1));
-	if (strtrim == NULL)
+	while ((*s == ' ' || *s == '\t' || *s == '\n') && *s)
+		s++;
+	if (*s == '\0')
+		return (ft_strnew(1));
+	len = ft_strlen(s) - 1;
+	while (s[len] == ' ' || s[len] == '\t' || s[len] == '\n')
+		len--;
+	len++;
+	if (!(ret = ft_strnew(sizeof(*ret) * (len + 1))))
 		return (NULL);
-	index = 0;
-	while (*s != ' ' && *s != ',' && *s != '\t' && *s != '\n' && *s != '\0')
-	{
-		strtrim[index] = *s;
-		++s;
-		++index;
-	}
-	strtrim[index] = '\0';
-	return (strtrim);
+	i = -1;
+	while (++i < len)
+		ret[i] = s[i];
+	ret[i] = '\0';
+	return (ret);
 }
