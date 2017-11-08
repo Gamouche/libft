@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 15:45:55 by cyfermie          #+#    #+#             */
-/*   Updated: 2017/11/07 15:45:56 by cyfermie         ###   ########.fr       */
+/*   Created: 2017/11/07 17:30:50 by cyfermie          #+#    #+#             */
+/*   Updated: 2017/11/07 17:30:52 by cyfermie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, const char *src)
-{
-	char	*ret;
+#include <stdlib.h>
 
-	ret = dest;
-	while ((*dest++ = *src++) != 0x00)
-		;
-	return (ret);
+void	*ft_memccpy(void *dst, void *src, int c, size_t n)
+{
+	while (n-- > 0)
+	{
+		*(unsigned char *)dst = *(unsigned char *)src;
+		if (*(unsigned char *)dst == (unsigned char)c)
+			return (dst + 1);
+		++dst;
+		++src;
+	}
+	return (NULL);
 }

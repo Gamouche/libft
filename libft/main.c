@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <ctype.h>
 
-#include "libft.h"
+#include "../libft//libft.h"
 
 #define TMP_FILE "jesuisunfichiertemporaire.txt"
 
@@ -46,6 +46,7 @@ void	test_putnbr_fd(void);
 void	test_memset(void);
 void	test_bzero(void);
 void	test_memcpy(void);
+void	test_memccpy(void);
 void	test_memmove(void);
 void	test_memchr(void);
 void	test_memcmp(void);
@@ -409,7 +410,7 @@ void	test_strjoin(void)
 
 void	test_strtrim(void)
 {
-	char	*res, *res2, *res3, *res4, *res5, *res6;
+	char	*res, *res2, *res3, *res4, *res5, *res6, *res7;
 
 	res = ft_strtrim("bonjour");
 	res2 = ft_strtrim("  ,bonjour");
@@ -417,11 +418,12 @@ void	test_strtrim(void)
 	res4 = ft_strtrim("  bonjour\n");
 	res5 = ft_strtrim("");
 	res6 = ft_strtrim(",");
+	res7 = ft_strtrim("    ");
 
-	if (res == NULL || res2 == NULL || res3 == NULL || res4 == NULL || res5 == NULL || res6 == NULL)
+	if (res == NULL || res2 == NULL || res3 == NULL || res4 == NULL || res5 == NULL || res6 == NULL || res7 == NULL)
 	{
 		puts("STRTRIM FAIL 1");
-		free(res); free(res2); free(res3); free(res4); free(res5); free(res6);
+		free(res); free(res2); free(res3); free(res4); free(res5); free(res6); free(res7);
 		return ;
 	}
 
@@ -430,14 +432,15 @@ void	test_strtrim(void)
 	|| strcmp(res3, "bonjour") != 0
 	|| strcmp(res4, "bonjour") != 0
 	|| strcmp(res5, "") != 0
-	|| strcmp(res6, "") != 0 )
+	|| strcmp(res6, "") != 0
+	|| strcmp(res7, "") != 0 )
 	{
 		puts("STRTRIM FAIL 2");
-		free(res); free(res2); free(res3); free(res4); free(res5); free(res6);
+		free(res); free(res2); free(res3); free(res4); free(res5); free(res6); free(res7);
 		return ;
 	}
 
-	free(res); free(res2); free(res3); free(res4); free(res5); free(res6);
+	free(res); free(res2); free(res3); free(res4); free(res5); free(res6); free(res7);
 	puts("STRTRIM OK");
 }
 
@@ -1138,6 +1141,47 @@ void	test_memcpy(void)
 	puts("MEMCPY OK");
 }
 
+void	test_memccpy(void)
+{
+	char 	*s1 = "Taj Mahal is a historic monument in India.";
+	char 		buffer[61];
+	char		*ptr;
+
+	ptr = ft_memccpy(buffer, s1, 'c', strlen(s1));
+
+	if ( ((uintptr_t) ptr )!= ((uintptr_t) (buffer + 23)) )
+	{
+		puts("MEMCCPY FAIL 1");
+		return ;
+	}
+
+	*ptr = 0;
+
+	if ( strcmp(buffer, "Taj Mahal is a historic") != 0 )
+	{
+		puts("MEMCCPY FAIL 2");
+		return ;
+	}
+
+	memset(buffer, 0, 61);
+
+	ptr = ft_memccpy(buffer, s1, 'z', strlen(s1));
+
+	if (ptr != NULL)
+	{
+		puts("MEMCCPY FAIL 3");
+		return ;
+	}
+
+	if ( strcmp(buffer, s1) != 0 )
+	{
+		puts("MEMCCPY FAIL 4");
+		return ;
+	}
+
+	puts("MEMCCPY OK");
+}
+
 void	test_memmove(void)
 {
 	char	un[] = "0123456789";
@@ -1793,7 +1837,7 @@ void	test_atoi(void)
 	{
 		if ( ft_atoi(tab[i]) != expected[i] )
 		{
-			printf("ATOI FAIL %d\n", i + 1);
+			printf("ATOI FAIL %zu\n", i + 1);
 			return ;
 		}
 	}
@@ -2056,6 +2100,7 @@ int		main(void)
 	test_memset();
 	test_bzero();
 	test_memcpy();
+	test_memccpy();
 	test_memmove();
 	test_memchr();
 	test_memcmp();

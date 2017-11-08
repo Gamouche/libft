@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/07 16:00:08 by cyfermie          #+#    #+#             */
+/*   Updated: 2017/11/07 16:00:09 by cyfermie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 char	*ft_strmap(char const *s, char (*f)(char))
@@ -9,7 +21,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	s_len = 0;
 	while (s[s_len] != '\0')
 		++s_len;
-	new_str = (char *) malloc( sizeof(char) * (s_len + 1) );
+	new_str = (char *)malloc(sizeof(char) * (s_len + 1));
 	if (new_str == NULL)
 		return (NULL);
 	i = 0;

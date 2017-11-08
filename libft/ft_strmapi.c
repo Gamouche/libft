@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/07 16:00:13 by cyfermie          #+#    #+#             */
+/*   Updated: 2017/11/07 16:00:14 by cyfermie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -9,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	s_len = 0;
 	while (s[s_len] != '\0')
 		++s_len;
-	new_str = (char *) malloc( sizeof(char) * (s_len + 1) );
+	new_str = (char *)malloc(sizeof(char) * (s_len + 1));
 	if (new_str == NULL)
 		return (NULL);
 	i = 0;
