@@ -6,12 +6,16 @@
 /*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 15:59:36 by cyfermie          #+#    #+#             */
-/*   Updated: 2017/11/07 15:59:37 by cyfermie         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:27:40 by cyfermie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 void	ft_striter(char *s, void (*f)(char *))
 {
+	if (s == NULL || f == NULL)
+		return ;
 	while (*s != '\0')
 	{
 		(*f)(s);

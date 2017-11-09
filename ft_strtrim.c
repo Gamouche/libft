@@ -6,7 +6,7 @@
 /*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:07:25 by cyfermie          #+#    #+#             */
-/*   Updated: 2017/11/07 16:07:26 by cyfermie         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:26:12 by cyfermie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char		*ft_strtrim(const char *s)
 	int		i;
 	int		len;
 
+	if (s == NULL)
+		return (NULL);
 	while ((*s == ' ' || *s == '\t' || *s == '\n') && *s)
 		s++;
 	if (*s == '\0')
@@ -26,7 +28,7 @@ char		*ft_strtrim(const char *s)
 	while (s[len] == ' ' || s[len] == '\t' || s[len] == '\n')
 		len--;
 	len++;
-	if (!(ret = ft_strnew(sizeof(*ret) * (len + 1))))
+	if (!(ret = ft_strnew(sizeof(*ret) * (len))))
 		return (NULL);
 	i = -1;
 	while (++i < len)

@@ -6,7 +6,7 @@
 /*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:00:13 by cyfermie          #+#    #+#             */
-/*   Updated: 2017/11/07 16:00:14 by cyfermie         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:20:56 by cyfermie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t			s_len;
 	unsigned int	i;
 
+	if (s == NULL || f == NULL)
+		return (NULL);
 	s_len = 0;
 	while (s[s_len] != '\0')
 		++s_len;

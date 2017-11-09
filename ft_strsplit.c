@@ -6,7 +6,7 @@
 /*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:07:51 by cyfermie          #+#    #+#             */
-/*   Updated: 2017/11/07 16:07:55 by cyfermie         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:33:30 by cyfermie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static size_t	get_nb_str(const char *s, char c)
 	return (nb_str);
 }
 
-static void		alloc_the_str(char **strsplit, const char *s, char c)
+static int		alloc_the_str(char **strsplit, const char *s, char c)
 {
 	size_t	index;
 	size_t	nb_ch;
@@ -48,9 +48,12 @@ static void		alloc_the_str(char **strsplit, const char *s, char c)
 		if (nb_ch != 0)
 		{
 			strsplit[index] = (char *)malloc(sizeof(char) * (nb_ch + 1));
+			if (strsplit[index] == NULL)
+				return (0);
 			++index;
 		}
 	}
+	return (1);
 }
 
 static void		fill_strsplit(char **strsplit, const char *s, char c)
@@ -81,10 +84,15 @@ char			**ft_strsplit(char const *s, char c)
 	char	**strsplit;
 	size_t	nb_str;
 
+	if (s == NULL)
+		return (NULL);
 	nb_str = get_nb_str(s, c);
 	strsplit = (char **)malloc(sizeof(char *) * (nb_str + 1));
+	if (strsplit == NULL)
+		return (NULL);
 	strsplit[nb_str] = NULL;
-	alloc_the_str(strsplit, s, c);
+	if (alloc_the_str(strsplit, s, c) == 0)
+		return (NULL);
 	fill_strsplit(strsplit, s, c);
 	return (strsplit);
 }

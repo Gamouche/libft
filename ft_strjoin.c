@@ -6,7 +6,7 @@
 /*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:02:24 by cyfermie          #+#    #+#             */
-/*   Updated: 2017/11/07 16:07:09 by cyfermie         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:25:35 by cyfermie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	index_2;
 	char	*strjoin;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	index_1 = 0;
 	index_2 = 0;
 	while (s1[index_1] != '\0')

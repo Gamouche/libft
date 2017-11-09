@@ -6,12 +6,16 @@
 /*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 15:59:15 by cyfermie          #+#    #+#             */
-/*   Updated: 2017/11/07 15:59:18 by cyfermie         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:27:21 by cyfermie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 void	ft_strclr(char *s)
 {
+	if (s == NULL)
+		return ;
 	while (*s != '\0')
 	{
 		*s = '\0';

@@ -6,7 +6,7 @@
 /*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:01:33 by cyfermie          #+#    #+#             */
-/*   Updated: 2017/11/07 16:01:39 by cyfermie         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:24:31 by cyfermie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
+	if (s1 == NULL || s2 == NULL)
+		return (0);
 	while (*s1 == *s2 && *s1 != '\0' && n > 0)
 	{
 		++s1;

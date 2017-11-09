@@ -10,7 +10,7 @@
 #include <ctype.h>
 
 //#include "../mongit/libft.h"
-#include "libft.h"
+#include "mongit/libft.h"
 
 #define TMP_FILE "jesuisunfichiertemporaire.txt"
 

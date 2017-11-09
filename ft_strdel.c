@@ -6,7 +6,7 @@
 /*   By: cyfermie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 15:58:27 by cyfermie          #+#    #+#             */
-/*   Updated: 2017/11/07 15:58:54 by cyfermie         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:17:44 by cyfermie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_strdel(char **as)
 {
+	if (as == NULL)
+		return ;
 	free(*as);
 	*as = NULL;
 }
