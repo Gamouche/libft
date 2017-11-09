@@ -2171,6 +2171,9 @@ void	test_lstmap(void)
 		return ;
 	}
 
+	ft_lstdel(&first, &lst_del_lol);
+	ft_lstdel(&lstmap, &lst_del_lol);
+
 	puts("LSTMAP OK");
 
 /*
